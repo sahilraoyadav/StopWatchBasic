@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private int seconds;
     private boolean running;
     private boolean wasRunning;
-    FloatingActionButton startButton = findViewById(R.id.start);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         runTimer();
-
     }
     private void runTimer() {
         TextView timeView = findViewById(R.id.timeText);
