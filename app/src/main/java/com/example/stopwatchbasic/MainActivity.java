@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Gets the vars when the app comes in foreground from background
         if (savedInstanceState != null) {
             savedInstanceState.getInt("seconds");
             savedInstanceState.getBoolean("running");
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         runTimer();
     }
-
+    //runs the timer when it initialized
     private void runTimer() {
         TextView timeView = findViewById(R.id.timeText);
         Handler handler = new Handler();
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+   /* Vars for floating button action and temp vars for the background app refresh*/
     public void onStart(View view) {
         running = true;
     }
@@ -76,10 +76,11 @@ public class MainActivity extends AppCompatActivity {
             running = true;
         }
     }
-
+    //Saves the program variables when app goes into the background
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        //Saves the variables when app goes into the background
         outState.putInt("seconds", seconds);
         outState.putBoolean("running", running);
         outState.putBoolean("wasRunning", wasRunning);
